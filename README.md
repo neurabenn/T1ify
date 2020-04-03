@@ -6,7 +6,7 @@ The main aim of this is to not only improve rgistrations results by increasing m
 # Required Skills
 This is an open learning project meaning that anyone can join and contribute! 
 However it may be useful to be familiar with at least some of the following: 
-- Neuroimaging Experience
+- Neuroimaging
 - Python
 - Deep Learning
 
