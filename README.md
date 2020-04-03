@@ -6,9 +6,9 @@ The main aim of this is to not only improve rgistrations results by increasing m
 # Required Skills
 This is an open learning project meaning that anyone can join and contribute! 
 However it may be useful to be familiar with at least some of the following: 
-	* Neuroimaging Experience
-	* Python
-	* Deep Learning
+	*Neuroimaging Experience
+	*Python
+	*Deep Learning
 
 Join our channel on  <a href="https://mattermost.brainhack.org/brainhack/channels/t1ify" target="_blank"><img src="http://www.mattermost.org/wp-content/uploads/2016/03/logoHorizontal.png" width=100px /></a>
 
