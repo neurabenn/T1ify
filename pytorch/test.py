@@ -15,7 +15,7 @@ network = UNet()
 network.load_state_dict(torch.load(NETWORK_FILENAME))
 network.cuda()
 
-dataset = JpegPairsDataset(glob_pattern='data/test/**.jpg')
+dataset = JpegDataset(glob_pattern='data/test_orig/t1w_**.jpg')
 data_loader = DataLoader(dataset, batch_size=8, shuffle=True, num_workers=8)
 
 index = 0
