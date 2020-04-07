@@ -19,6 +19,7 @@ NETWORK_FILENAME = 'trained_models/unet.to'
 network = UNet()
 network.load_state_dict(torch.load(NETWORK_FILENAME))
 network.cuda()
+network.eval()
 
 
 image = io.imread(input_filename)[:, :, 0] / 255.0

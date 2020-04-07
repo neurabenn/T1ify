@@ -14,6 +14,7 @@ NETWORK_FILENAME = 'trained_models/unet.to'
 network = UNet()
 network.load_state_dict(torch.load(NETWORK_FILENAME))
 network.cuda()
+network.eval()
 
 dataset = JpegDataset(glob_pattern='data/test_orig/t1w_**.jpg')
 data_loader = DataLoader(dataset, batch_size=8, shuffle=True, num_workers=8)
