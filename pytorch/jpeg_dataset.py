@@ -15,7 +15,7 @@ class JpegDataset(Dataset):
         file_name = self.file_names[index]
         image = io.imread(file_name) / 255.0
 
-        t2 = torch.tensor(image[:, :image.shape[1] // 2, 0], dtype=torch.float32)
-        t1 = torch.tensor(image[:, image.shape[1] // 2:, 0], dtype=torch.float32)
+        t1 = torch.tensor(image[:, :image.shape[1] // 2, 0], dtype=torch.float32)
+        t2 = torch.tensor(image[:, image.shape[1] // 2:, 0], dtype=torch.float32)
         
         return t2, t1
