@@ -2,7 +2,7 @@ from itertools import count
 
 import torch
 from torch.utils.data import DataLoader
-from jpeg_dataset import JpegDataset
+from jpeg_dataset import *
 from tqdm import tqdm
 from torchvision import utils
 
@@ -15,7 +15,7 @@ network = UNet()
 network.load_state_dict(torch.load(NETWORK_FILENAME))
 network.cuda()
 
-dataset = JpegDataset(glob_pattern='data/test/**.jpg')
+dataset = JpegPairsDataset(glob_pattern='data/test/**.jpg')
 data_loader = DataLoader(dataset, batch_size=8, shuffle=True, num_workers=8)
 
 index = 0
