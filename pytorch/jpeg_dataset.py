@@ -5,8 +5,8 @@ from skimage import io
 import random
 
 class JpegDataset(Dataset):
-    def __init__(self):
-        self.file_names = glob.glob('data/train/**.jpg', recursive=True)
+    def __init__(self, glob_pattern='data/train/**.jpg'):
+        self.file_names = glob.glob(glob_pattern, recursive=True)
         
     def __len__(self):
         return len(self.file_names)
