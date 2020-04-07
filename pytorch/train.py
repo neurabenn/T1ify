@@ -6,6 +6,7 @@ import torch.optim as optim
 import numpy as np
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+from jpeg_dataset import JpegDataset
 
 from unet import UNet
 
@@ -19,7 +20,7 @@ except:
     print("Found no model, training a new one.")
 network.cuda()
 
-dataset = # TODO
+dataset = JpegDataset()
 data_loader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=8)
 
 optimizer = optim.Adam(network.parameters(), lr=0.0002)

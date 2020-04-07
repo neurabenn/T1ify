@@ -81,11 +81,13 @@ class UNet(nn.Module):
             BlockUp(BREADTH * 8, BREADTH * 4),
             BlockUp(BREADTH * 4, BREADTH * 2),
             BlockUp(BREADTH * 2, BREADTH * 1),
-            BlockUp(BREADTH * 1, 1, use_relu=False),
-            nn.Sigmoid(inplace=True)
+            BlockUp(BREADTH * 1, 1, use_relu=False)
         )
 
         self.cuda()
 
     def forward(self, x):
-        return self.layers((x, []))[0]
+        if len(x.shape) == 3:
+            x = x.unsqueeze(1)
+
+        return torch.sigmoid(self.layers((x, []))[0])
