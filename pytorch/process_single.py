@@ -1,3 +1,4 @@
+#### applies trained network to an input jpeg
 from itertools import count
 from skimage import io
 
