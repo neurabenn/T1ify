@@ -27,12 +27,12 @@ with torch.no_grad():
 
         predicted = network(t2.to(device))
 
-        test_output = torch.zeros(size * t2.shape[0], size * 3)
+        test_output = torch.zeros(size * 3, size * t2.shape[0])
 
         for i in range(t1.shape[0]):
-            test_output[i * size:(i+1) * size, :size] = t2[i, :, :]
-            test_output[i * size:(i+1) * size, size:-size] = t1[i, :, :]
-            test_output[i * size:(i+1) * size, -size:] = predicted[i, :, :]
+            test_output[:size, i * size:(i+1) * size] = t2[i, :, :]
+            test_output[size:-size, i * size:(i+1) * size] = t1[i, :, :]
+            test_output[-size:, i * size:(i+1) * size] = predicted[i, :, :]
         
         utils.save_image(test_output, 'data/output/{:05d}.jpg'.format(index))
         index += 1
