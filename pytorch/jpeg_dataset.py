@@ -51,8 +51,8 @@ class JpegDataset(Dataset):
             else:
                 raise Exception("T1 and T2 images have different resolutions. \n\n{:s}\n{:s}.".format(file_name_t1, file_name_t2))
 
-        offset_x = random.randrange(image_t1.shape[0] - self.resolution)
-        offset_y = random.randrange(image_t1.shape[1] - self.resolution)
+        offset_x = random.randrange(image_t1.shape[0] - self.resolution) if image_t1.shape[0] > self.resolution else 0
+        offset_y = random.randrange(image_t1.shape[1] - self.resolution) if image_t1.shape[1] > self.resolution else 0
 
         t1 = torch.tensor(image_t1[offset_x:offset_x + self.resolution, offset_y:offset_y + self.resolution], dtype=torch.float32)
         t2 = torch.tensor(image_t2[offset_x:offset_x + self.resolution, offset_y:offset_y + self.resolution], dtype=torch.float32)
@@ -62,7 +62,6 @@ class JpegDataset(Dataset):
             padded_t2 = torch.zeros(self.resolution, self.resolution)
             padded_t1[:t1.shape[0], :t1.shape[1]] = t1
             padded_t2[:t2.shape[0], :t2.shape[1]] = t2
-            print(image_t1.shape, image_t2.shape, t1.shape, t2.shape, padded_t2.shape, padded_t2.shape)
             t1, t2 = padded_t1, padded_t2
         
         return t2, t1
