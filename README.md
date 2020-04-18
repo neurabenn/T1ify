@@ -17,6 +17,11 @@ Join our channel on  <a href="https://mattermost.brainhack.org/brainhack/channel
 ![](https://raw.githubusercontent.com/recoveringyank/T1ify/master/t1ify320.jpg)
 
 
+#### First outputs during testing of different approaches
+Left: T2 -- T1 -- T1 predicted; Right:T1 -- T2 predicted -- T2   
+<img src="img/1_T2-T1-T1predicted_with-crop-to-augment.jpg" width=400> <img src="img/2_T1-T2predicted-T2.png" width=400>
+
+
 ## Set up
 We are using git submodules for external tools which we store inside the `bin` directory. After you forked and cloned the repository, do  
 `cd T1ify`  
